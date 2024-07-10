@@ -1,0 +1,75 @@
+return {
+  {
+    "stevearc/conform.nvim",
+    lazy = false,
+    event = "BufWritePre", -- uncomment for format on save
+    cmd = { "ConformInfo" },
+    config = function()
+      require "configs.conform"
+    end,
+  },
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "lua-language-server",
+        "stylua",
+        "html-lsp",
+        "css-lsp",
+        "pyright",
+        "prettier",
+        "gopls",
+      },
+    },
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "vim",
+        "lua",
+        "vimdoc",
+        "html",
+        "css",
+        "python",
+      },
+    },
+  },
+  ------------------------------
+  -- Custom Plugins Added Here--
+  ------------------------------
+  {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    build = "make",
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require "configs.telescope"
+    end,
+  },
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require "configs.lspconfig"
+    end,
+  },
+  {
+    "is0n/jaq-nvim",
+    config = function()
+      require "configs.jaq"
+    end,
+    cmd = { "Jaq" },
+  },
+  {
+    "windwp/nvim-ts-autotag",
+    lazy = false,
+    config = function()
+      require "configs.ts-autotag"
+    end,
+  },
+  {
+    "rcarriga/nvim-notify"
+  },
+}
