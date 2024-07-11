@@ -25,3 +25,15 @@ stow .
 ```
 
 And That completes the setup :)
+
+# Setting Up zsh
+
+The .zshrc file contains all of the setup except the zsh plugin manager. Install zsh plugin manager using an AUR helper.
+
+```
+yay -S zinit
+```
+
+```
+paru -S zinit
+```
