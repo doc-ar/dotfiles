@@ -61,6 +61,7 @@ tmux source ~/.config/tmux/tmux.conf
 Press `prefix` + <kbd>I</kbd> (capital i, as in **I**nstall) to fetch the plugin
 
 > By default the prefix in tmux is `ctrl` + <kbd>b</kbd>
+
 > I have set up the prefix tmux.conf as `ctrl` + <kbd>space</kbd>
 
 # Notes
