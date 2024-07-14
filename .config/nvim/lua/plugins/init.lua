@@ -86,4 +86,8 @@ return {
       vim.fn["mkdp#util#install"]()
     end,
   },
+  {
+    "tpope/vim-fugitive",
+    cmd = { "Git" },
+  },
 }
