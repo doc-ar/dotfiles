@@ -21,7 +21,7 @@ Clone the This repo in your home directory and use stow to create symlinks
 
 ```
 cd ~
-git clone git@github.com:doc-ar/dotfiles.git
+git clone --recurse-submodules git@github.com:doc-ar/dotfiles.git
 cd ./dotfiles
 stow .
 ```
