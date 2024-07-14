@@ -25,7 +25,7 @@ map("n", "<leader>fd", ":FormatDisable<CR>", { desc = "Disable Auto Formatting" 
 map("n", "<leader>fe", ":FormatEnable<CR>", { desc = "Enable Auto Formatting" })
 
 -- Shortcut for markdown preview toggle
-map("n", "<leader>mp", ":w<CR> :MarkdownPreviewToggle<CR>", { desc = "Toggle Markdown Preview" })
+map("n", "<leader>mp", ":MarkdownPreviewToggle<CR>", { desc = "Toggle Markdown Preview" })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 

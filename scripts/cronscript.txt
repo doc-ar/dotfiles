@@ -1,0 +1,4 @@
+# I add the following line to my crontab
+# to search for all directories and store them in a file
+
+* * * * * /usr/bin/find ~ -type d -print > ~/dotfiles/scripts/directories.txt
