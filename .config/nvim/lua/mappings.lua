@@ -28,9 +28,9 @@ map("n", "<leader>fe", ":FormatEnable<CR>", { desc = "Enable Auto Formatting" })
 map("n", "<leader>mp", ":MarkdownPreviewToggle<CR>", { desc = "Toggle Markdown Preview" })
 
 -- Git commands
-map("n", "<leader>gs", ":Git<CR>", { desc = "Git staging" })
-map("n", "<leader>gc", ":Git commit<CR>", { desc = "Git commit" })
-map("n", "<leader>gp", ":Git push<CR>", { desc = "Git push" })
+-- map("n", "<leader>gs", ":Git<CR>", { desc = "Git staging" })
+-- map("n", "<leader>gc", ":Git commit<CR>", { desc = "Git commit" })
+-- map("n", "<leader>gp", ":Git push<CR>", { desc = "Git push" })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
