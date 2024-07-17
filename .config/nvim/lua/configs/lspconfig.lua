@@ -6,7 +6,7 @@ local on_init = config.on_init
 
 local lspconfig = require "lspconfig"
 
-local servers = { "html", "cssls", "tsserver", "pyright", "lua_ls" }
+local servers = { "html", "cssls", "tsserver", "pyright", "lua_ls", "jsonls" }
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
