@@ -1,3 +1,4 @@
+
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
 vim.g.mapleader = " "
 
@@ -13,9 +14,10 @@ if not vim.loop.fs_stat(lazypath) then
   vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
 end
 
+local lazy_config = require "configs.lazy"
+
 vim.opt.rtp:prepend(lazypath)
 
-local lazy_config = require "configs.lazy"
 
 -- load plugins
 require("lazy").setup({
