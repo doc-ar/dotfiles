@@ -53,6 +53,7 @@ parurm() {
 #### Aliases ####
 #################
 
+alias hypr="cd ~/.config/hypr"
 alias insta="instaloader --no-captions --no-metadata-json --no-compress-json --no-profile-pic"
 alias tmux="tmux -u"
 alias ttach="tmux attach-session -t"

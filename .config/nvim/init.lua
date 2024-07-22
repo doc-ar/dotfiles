@@ -1,4 +1,3 @@
-
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
 vim.g.mapleader = " "
 
@@ -17,7 +16,6 @@ end
 local lazy_config = require "configs.lazy"
 
 vim.opt.rtp:prepend(lazypath)
-
 
 -- load plugins
 require("lazy").setup({

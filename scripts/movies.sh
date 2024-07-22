@@ -1,10 +1,12 @@
 #!/bin/sh
 
-# Store the directory path in a variable
-media_dir=~/Downloads/Media
+# Store the media directory path in a variable
+# The media directory contains symlinks from all media folders
+# Symlinks were created using stow
+media_dir=~/scripts/medialinks
 
 # Run fzf to get the selected movie / show
-selection=$(ls "$media_dir" | ~/scripts/fzfmenu.sh)
+selection=$(ls -R "$media_dir" | ~/scripts/fzfmenu.sh)
 
 # Check if a directory was selected
 if [ -n "$selection" ]; then
