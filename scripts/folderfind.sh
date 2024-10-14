@@ -8,5 +8,5 @@ selected_dir=$(cat ~/directories.txt | ~/scripts/fzfmenu.sh)
 # Check if a directory was selected
 if [ -n "$selected_dir" ]; then
   # Open the selected directory in Nautilus
-  nautilus "$selected_dir"
+  thunar "$selected_dir"
 fi

@@ -21,9 +21,10 @@
 #### Exports ####
 #################
 
-export EDITOR='nvim'
-export VISUAL='nvim'
-export QT_QPA_PLATFORM=wayland
+# export TERMINAL='foot'
+# export EDITOR='nvim'
+# export VISUAL='nvim'
+# export QT_QPA_PLATFORM=wayland
 
 ###################
 #### Functions ####
@@ -53,6 +54,9 @@ parurm() {
 #### Aliases ####
 #################
 
+alias ls="ls --color=auto"
+alias warp="warp-cli"
+alias mediastow="stow . -t ~/dotfiles/scripts/medialinks"
 alias hypr="cd ~/.config/hypr"
 alias insta="instaloader --no-captions --no-metadata-json --no-compress-json --no-profile-pic"
 alias tmux="tmux -u"
@@ -69,3 +73,11 @@ source /usr/share/zinit/zinit.zsh
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
+
+# pnpm
+export PNPM_HOME="/home/docar/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
