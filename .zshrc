@@ -73,6 +73,10 @@ source ~/.local/share/zinit/zinit.git/zinit.zsh
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
+zinit light zdharma-continuum/zinit-annex-as-monitor
+zinit light zdharma-continuum/zinit-annex-bin-gem-node
+zinit light zdharma-continuum/zinit-annex-patch-dl
+zinit light zdharma-continuum/zinit-annex-rust
 
 # pnpm
 export PNPM_HOME="/home/docar/.local/share/pnpm"

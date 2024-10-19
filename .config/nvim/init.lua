@@ -5,6 +5,9 @@ vim.g.mapleader = " "
 vim.opt.relativenumber = true
 vim.opt.clipboard = "unnamedplus"
 
+-- put this in your main init.lua file ( before lazy setup )
+vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46_cache/"
+
 -- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
