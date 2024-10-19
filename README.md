@@ -40,14 +40,25 @@ Add the font font `JetBrainsMono Nerd Font` in your terminal emulator of choice
 
 ## Setting Up zsh
 
-The .zshrc file contains all of the setup except the zsh plugin manager. Install zsh plugin manager using an AUR helper.
+Zinit is a plugin manager for zsh. The easiest way to install Zinit is to execute:
 
-```
-yay -S zinit
+```bash
+bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 ```
 
+This will install Zinit in `~/.local/share/zinit/zinit.git`. `.zshrc` will be updated with three lines of code that will
+be added to the bottom. The lines will be sourcing `zinit.zsh` and setting up completion for command `zinit`.
+
+After installing and reloading the shell, compile Zinit via:
+
+```zsh
+zinit self-update
 ```
-paru -S zinit
+
+To reload the zsh rc file ush the following command:
+
+```zsh
+exec zsh
 ```
 
 ## Setting up tmux
