@@ -68,7 +68,7 @@ alias tkill="tmux kill-session -t"
 #################
 
 # Load zsh plugin manager zinit
-source /usr/share/zinit/zinit.zsh
+source ~/.local/share/zinit/zinit.zsh
 # List zinit plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
