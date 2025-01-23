@@ -25,6 +25,8 @@
 # export EDITOR='nvim'
 # export VISUAL='nvim'
 # export QT_QPA_PLATFORM=wayland
+export PATH="${SONAR_SCANNER_HOME}/bin:${PATH}"
+export SONAR_SCANNER_HOME="/opt/sonar-scanner"
 
 ###################
 #### Functions ####
@@ -78,10 +80,6 @@ zinit light zdharma-continuum/zinit-annex-bin-gem-node
 zinit light zdharma-continuum/zinit-annex-patch-dl
 zinit light zdharma-continuum/zinit-annex-rust
 
-# pnpm
-export PNPM_HOME="/home/docar/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

@@ -24,12 +24,12 @@ require("conform").setup {
     handlebars = { "prettierd", "prettier" },
   },
 
-  format_on_save = function(bufnr)
+  format_after_save = function(bufnr)
     -- Disable with a global or buffer-local variable
     if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
       return
     end
-    return { timeout_ms = 500, lsp_format = "fallback" }
+    return { async = true, timeout_ms = 500, lsp_format = "fallback" }
   end,
 }
 
@@ -50,7 +50,3 @@ vim.api.nvim_create_user_command("FormatEnable", function()
 end, {
   desc = "Re-enable autoformat-on-save",
 })
-
--- -- Create Neovim user commands for toggling auto formatting
--- vim.api.nvim_command [[command! FormatDisable :lua require('configs.format').disable_autoformat()]]
--- vim.api.nvim_command [[command! FormatEnable :lua require('configs.format').enable_autoformat()]]

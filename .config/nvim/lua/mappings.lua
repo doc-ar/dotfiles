@@ -29,8 +29,9 @@ map("n", "<leader>mp", ":MarkdownPreviewToggle<CR>", { desc = "Toggle Markdown P
 
 -- Git commands
 map("n", "<leader>gg", ":Neogit<CR>", { desc = "Neogit Home" })
--- map("n", "<leader>gc", ":Git commit<CR>", { desc = "Git commit" })
--- map("n", "<leader>gp", ":Git push<CR>", { desc = "Git push" })
+
+-- Error wrap
+map("n", "<leader>we", ":lua vim.diagnostic.open_float()<CR>", { desc = "Wrap Errors" })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
