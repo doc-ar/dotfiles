@@ -9,7 +9,7 @@
 #### Sources ####
 #################
 
-# Source fzf extra fucntions
+# # Source fzf extra fucntions
 [[ -e "$HOME/.config/fzf/fzf-extras.zsh" ]] && source $HOME/.config/fzf/fzf-extras.zsh
 [[ -e "$HOME/.config/fzf/fzf-extras.bash" ]] && source $HOME/.config/fzf/fzf-extras.bash
 # Source fzf key bindings
@@ -25,8 +25,6 @@
 # export EDITOR='nvim'
 # export VISUAL='nvim'
 # export QT_QPA_PLATFORM=wayland
-export PATH="${SONAR_SCANNER_HOME}/bin:${PATH}"
-export SONAR_SCANNER_HOME="/opt/sonar-scanner"
 
 ###################
 #### Functions ####
@@ -71,7 +69,7 @@ alias tkill="tmux kill-session -t"
 
 # Load zsh plugin manager zinit
 source ~/.local/share/zinit/zinit.git/zinit.zsh
-# List zinit plugins
+# # List zinit plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
@@ -80,6 +78,4 @@ zinit light zdharma-continuum/zinit-annex-bin-gem-node
 zinit light zdharma-continuum/zinit-annex-patch-dl
 zinit light zdharma-continuum/zinit-annex-rust
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+eval "$(fnm env --use-on-cd --shell zsh)"

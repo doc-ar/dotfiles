@@ -15,6 +15,14 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 
+-- Move Lines
+map("n", "<a-j>", ":m .+1<CR>==", { noremap = true, silent = true })
+map("n", "<a-k>", ":m .-2<CR>==", { noremap = true, silent = true })
+map("i", "<a-j>", "<Esc>:m .+1<CR>==gi", { noremap = true, silent = true })
+map("i", "<a-k>", "<Esc>:m .-2<CR>==gi", { noremap = true, silent = true })
+map("v", "<a-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
+map("v", "<a-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+
 -- Buffer Navigation
 map("n", "<S-l>", ":bnext<CR>", { noremap = true, silent = true })
 map("n", "<S-h>", ":bprevious<CR>", { noremap = true, silent = true })
@@ -25,7 +33,8 @@ map("n", "<leader>fd", ":FormatDisable<CR>", { desc = "Disable Auto Formatting" 
 map("n", "<leader>fe", ":FormatEnable<CR>", { desc = "Enable Auto Formatting" })
 
 -- Shortcut for markdown preview toggle
-map("n", "<leader>mp", ":MarkdownPreviewToggle<CR>", { desc = "Toggle Markdown Preview" })
+map("n", "<leader>po", ":PeekOpen<CR>", { desc = "Markdown Preview Open" })
+map("n", "<leader>pc", ":PeekClose<CR>", { desc = "Markdown Preview Close" })
 
 -- Git commands
 map("n", "<leader>gg", ":Neogit<CR>", { desc = "Neogit Home" })
