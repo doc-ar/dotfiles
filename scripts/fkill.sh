@@ -5,7 +5,8 @@ local pid
 pid="$(
   ps -ef |
     sed 1d |
-    fzf -m |
+    awk '{print $1,$2,$8,$9}' |
+    ~/scripts/fzfmenu.sh |
     awk '{print $2}'
 )" || return
 

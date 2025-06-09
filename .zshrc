@@ -56,9 +56,6 @@ parurm() {
 
 alias ls="ls --color=auto"
 alias warp="warp-cli"
-alias mediastow="stow . -t ~/dotfiles/scripts/medialinks"
-alias hypr="cd ~/.config/hypr"
-alias insta="instaloader --no-captions --no-metadata-json --no-compress-json --no-profile-pic"
 alias tmux="tmux -u"
 alias ttach="tmux attach-session -t"
 alias tkill="tmux kill-session -t"
@@ -78,4 +75,20 @@ zinit light zdharma-continuum/zinit-annex-bin-gem-node
 zinit light zdharma-continuum/zinit-annex-patch-dl
 zinit light zdharma-continuum/zinit-annex-rust
 
-eval "$(fnm env --use-on-cd --shell zsh)"
+# fnm
+FNM_PATH="/home/docar/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/docar/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
+# Load pyenv automatically by appending
+# the following to 
+# ~/.zprofile (for login shells)
+# and ~/.zshrc (for interactive shells) :
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
+# Created by `pipx` on 2025-05-22 10:14:30
+export PATH="$PATH:/home/docar/.local/bin"
