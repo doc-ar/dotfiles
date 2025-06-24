@@ -75,6 +75,9 @@ zinit light zdharma-continuum/zinit-annex-bin-gem-node
 zinit light zdharma-continuum/zinit-annex-patch-dl
 zinit light zdharma-continuum/zinit-annex-rust
 
+#Add Go path
+export PATH="$PATH:/home/docar/go/bin"
+
 # fnm
 FNM_PATH="/home/docar/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
@@ -92,3 +95,4 @@ eval "$(pyenv init - zsh)"
 
 # Created by `pipx` on 2025-05-22 10:14:30
 export PATH="$PATH:/home/docar/.local/bin"
+

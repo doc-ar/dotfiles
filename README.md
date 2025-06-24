@@ -12,7 +12,7 @@ sudo pacman -S git stow
 Now install the configured applications themselves
 
 ```
-sudo pacman -S neovim mpv foot fastfetch tmux yazi
+sudo pacman -S neovim mpv foot fastfetch tmux yazi qbittorrent
 ```
 
 ## Setting up the dotfiles
@@ -41,6 +41,7 @@ Add the font font `JetBrainsMono Nerd Font` in your terminal emulator of choice
 ## Setting Up zsh
 
 First make zsh your default shell using:
+
 ```bash
 chsh -s $(which zsh)
 ```
@@ -55,6 +56,7 @@ This will install Zinit in `~/.local/share/zinit/zinit.git`. `.zshrc` will be up
 be added to the bottom. The lines will be sourcing `zinit.zsh` and setting up completion for command `zinit`.
 
 Refresh zsh config using:
+
 ```zsh
 exec zsh
 ```
@@ -82,7 +84,6 @@ Press `prefix` + <kbd>I</kbd> (capital i, as in **I**nstall) to fetch the plugin
 ## Setting up mpv
 
 MPV is all setup except it requires a additional font for displaying icons. The **Material Design Iconic Font** can be installed either manually or through the AUR.
-
 
 ```zsh
 paru -S ttf-material-design-iconic-font

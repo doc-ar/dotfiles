@@ -39,6 +39,7 @@ return {
         "typescript-language-server",
         "clang-format",
         "autopep8",
+        "templ",
       },
     },
   },
