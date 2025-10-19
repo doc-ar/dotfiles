@@ -1,22 +1,8 @@
 return {
   {
-    "nvchad/ui",
-    config = function()
-      require "nvchad"
-    end,
-  },
-
-  {
-    "nvchad/base46",
-    lazy = true,
-    build = function()
-      require("base46").load_all_highlights()
-    end,
-  },
-  {
     "stevearc/conform.nvim",
     lazy = false,
-    event = "BufWritePre", -- uncomment for format on save
+    event = "BufWritePre",
     cmd = { "ConformInfo" },
     config = function()
       require "configs.conform"
@@ -25,23 +11,15 @@ return {
   {
     "williamboman/mason.nvim",
     opts = {
-      ensure_installed = {
-        "lua-language-server",
-        "stylua",
-        "html-lsp",
-        "css-lsp",
-        "pyright",
-        "prettier",
-        "gopls",
-        "goimports",
-        "goimports-reviser",
-        "shfmt",
-        "typescript-language-server",
-        "clang-format",
-        "autopep8",
-        "templ",
-      },
+      ensure_installed = {},
     },
+  },
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    cmd = { "MasonToolsInstall", "MasonToolsClean", "MasonToolsUpdate" },
+    config = function()
+      require "configs.mason-tool-installer"
+    end
   },
   {
     "nvim-treesitter/nvim-treesitter",

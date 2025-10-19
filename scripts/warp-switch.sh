@@ -1,15 +1,18 @@
 #!/bin/bash
 
-status=$(
-  warp-cli status |
-    head -n 1 |
-    cut -d ' ' -f 3
-)
+# function
+notification() {
+  notify-send $1 -a "Cloudflare Warp"
+}
 
-if [ $status = "Connected" ]; then
-  warp-cli disconnect
-  notify-send "Warp is Disconnected" -a "Cloudflare Warp" --expire-time 2000
-else
-  warp-cli connect
-  notify-send "Warp is Connecting" -a "Cloudflare Warp" --expire-time 2000
-fi
+warp-cli status | grep -qi "disconnected" && {
+  warp-cli connect && notification "Connecting..."
+  for i in $(seq 1 30); do
+    sleep 0.5
+    warp-cli status | grep -qi "connected" &&
+      notification "Connected Successfully" && exit 0
+  done
+  warp-cli disconnect && notification "Failed to Connect" && exit 1
+} || {
+  warp-cli disconnect && notification "Disconnected Successfully"
+}

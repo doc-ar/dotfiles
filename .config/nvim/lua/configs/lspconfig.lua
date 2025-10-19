@@ -1,26 +1,22 @@
-local config = require "nvchad.configs.lspconfig"
+require("nvchad.configs.lspconfig").defaults()
 
-local on_attach = config.on_attach
-local capabilities = config.capabilities
-local on_init = config.on_init
+local servers = {
+  "html",
+  "cssls",
+  "ts_ls",
+  "lua_ls",
+  "jsonls",
+  "hyprls",
+  "templ",
+  "htmx",
+  "gopls",
+  "dockerls",
+  "sqls",
+}
 
-local lspconfig = require "lspconfig"
+vim.lsp.enable(servers)
 
-local servers = { "html", "cssls", "ts_ls", "pyright", "lua_ls", "jsonls", "hyprls", "templ" }
-
--- lsps with default config
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    on_init = on_init,
-    capabilities = capabilities,
-  }
-end
-
-lspconfig.gopls.setup {
-  on_attach = on_attach,
-  on_init = on_init,
-  capabilities = capabilities,
+vim.lsp.config("gopls", {
   settings = {
     gopls = {
       completeUnimported = true,
@@ -30,4 +26,4 @@ lspconfig.gopls.setup {
       },
     },
   },
-}
+})

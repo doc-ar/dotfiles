@@ -25,6 +25,8 @@
 # export EDITOR='nvim'
 # export VISUAL='nvim'
 # export QT_QPA_PLATFORM=wayland
+export WINEESYNC=1
+export WINEFSYNC=1
 
 ###################
 #### Functions ####
@@ -43,11 +45,6 @@ paruf() {
 # Function to search and remove packages using pacman
 pacrm() {
 	pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns
-}
-
-# Function to search and remove packages using paru
-parurm() {
-	paru -Qq | fzf --multi --preview 'paru -Qi {1}' | xargs -ro paru -Rns
 }
 
 #################

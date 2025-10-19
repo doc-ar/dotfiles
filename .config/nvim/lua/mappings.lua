@@ -1,18 +1,5 @@
 require "nvchad.mappings"
 
--- Function to run current Go file in a floating terminal
--- local function run_current_go_file_in_floating_terminal()
---   local current_file = vim.fn.expand "%:p" -- Get full path of current file
---   require("nvchad.term").runner {
---     cmd = "go run " .. current_file,
---     id = "floatTerm",
---     pos = "float",
---     clear_cmd = "clear; ",
---   }
--- end
-
--- add yours here
-
 local map = vim.keymap.set
 
 -- Move Lines
@@ -24,8 +11,12 @@ map("v", "<a-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 map("v", "<a-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 
 -- Buffer Navigation
-map("n", "<S-l>", ":bnext<CR>", { noremap = true, silent = true })
-map("n", "<S-h>", ":bprevious<CR>", { noremap = true, silent = true })
+map("n", "<S-l>", function()
+  require("nvchad.tabufline").next()
+end, { noremap = true, silent = true, desc = "Next Buffer" })
+map("n", "<S-h>", function()
+  require("nvchad.tabufline").prev()
+end, { noremap = true, silent = true, desc = "Previous Buffer" })
 
 -- Run Code using Jaq plugin
 map("n", "<leader>cr", ":w<CR>:Jaq<CR>", { desc = "Run Code" })
