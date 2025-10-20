@@ -12,6 +12,7 @@ local servers = {
   "gopls",
   "dockerls",
   "sqls",
+  "pylsp"
 }
 
 vim.lsp.enable(servers)
