@@ -32,7 +32,6 @@ require("conform").setup({
       graphql = { "prettierd", "prettier" },
       handlebars = { "prettierd", "prettier" },
       sql = { "sql_formatter" },
-      python = { "ruff" }
     },
   }
 })

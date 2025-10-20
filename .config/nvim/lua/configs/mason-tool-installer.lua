@@ -22,6 +22,7 @@ require('mason-tool-installer').setup {
     "sqls",
     "sql-formatter",
     "hyprls",
+    "pylsp"
   },
 
   -- if set to true this will check each tool for updates. If updates
