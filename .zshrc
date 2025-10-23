@@ -37,9 +37,9 @@ pacf() {
 	pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S
 }
 
-# Function to search and install packages using paru
-paruf() {
-	paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S
+# Function to search and install packages using yay
+yayf() {
+	yay -Slq | fzf --multi --preview 'yay -Si {1}' | xargs -ro yay -S
 }
 
 # Function to search and remove packages using pacman
@@ -81,14 +81,6 @@ if [ -d "$FNM_PATH" ]; then
   export PATH="/home/docar/.local/share/fnm:$PATH"
   eval "`fnm env`"
 fi
-# Load pyenv automatically by appending
-# the following to 
-# ~/.zprofile (for login shells)
-# and ~/.zshrc (for interactive shells) :
-
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
 
 # Created by `pipx` on 2025-05-22 10:14:30
 export PATH="$PATH:/home/docar/.local/bin"
