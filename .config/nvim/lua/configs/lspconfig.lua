@@ -13,10 +13,8 @@ local servers = {
   "dockerls",
   "sqls",
   "pylsp",
-  "tailwindcss"
+  "tailwind-css-server",
 }
-
-vim.lsp.enable(servers)
 
 vim.lsp.config("gopls", {
   settings = {
@@ -29,3 +27,17 @@ vim.lsp.config("gopls", {
     },
   },
 })
+
+vim.lsp.config("pylsp", {
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          enabled = false,
+        },
+      },
+    },
+  },
+})
+
+vim.lsp.enable(servers)

@@ -1,28 +1,31 @@
-require('mason-tool-installer').setup {
+require("mason-tool-installer").setup {
 
   -- a list of all tools you want to ensure are installed upon
   -- start
   ensure_installed = {
-    "lua-language-server",
-    "stylua",
-    "html-lsp",
+    "black",
+    "clang-format",
     "css-lsp",
-    "prettier",
+    "docker-language-server",
     "gofumpt",
     "gopls",
     "goimports",
     "goimports-reviser",
-    "shfmt",
-    "typescript-language-server",
-    "clang-format",
-    "templ",
-    "tailwindcss-language-server",
+    "html-lsp",
     "htmx-lsp",
-    "docker-language-server",
-    "sqls",
-    "sql-formatter",
     "hyprls",
-    "pylsp"
+    "json-lsp",
+    "lua-language-server",
+    "prettier",
+    "prettierd",
+    "python-lsp-server",
+    "shfmt",
+    "sql-formatter",
+    "sqls",
+    "stylua",
+    "tailwindcss-language-server",
+    "templ",
+    "typescript-language-server",
   },
 
   -- if set to true this will check each tool for updates. If updates
@@ -59,8 +62,8 @@ require('mason-tool-installer').setup {
   -- module(s) (assuming any are installed) which is sometimes wanted when
   -- doing lazy loading.
   integrations = {
-    ['mason-lspconfig'] = true,
-    ['mason-null-ls'] = true,
-    ['mason-nvim-dap'] = true,
+    ["mason-lspconfig"] = true,
+    ["mason-null-ls"] = true,
+    ["mason-nvim-dap"] = true,
   },
 }

@@ -19,7 +19,7 @@ return {
     cmd = { "MasonToolsInstall", "MasonToolsClean", "MasonToolsUpdate" },
     config = function()
       require "configs.mason-tool-installer"
-    end
+    end,
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -74,6 +74,7 @@ return {
     "toppair/peek.nvim",
     event = { "VeryLazy" },
     build = "deno task --quiet build:fast",
+    cmd = { "PeekOpen", "PeekClose" },
     config = function()
       require "configs.peek"
     end,

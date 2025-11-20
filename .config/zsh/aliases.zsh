@@ -1,0 +1,5 @@
+alias ls="ls --color=auto"
+alias warp="warp-cli"
+alias tmux="tmux -u"
+alias ttach="tmux attach-session -t"
+alias tkill="tmux kill-session -t"
