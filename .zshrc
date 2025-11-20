@@ -47,6 +47,16 @@ pacrm() {
 	pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns
 }
 
+# Function to rebuild docker image and run using compose
+docker-reload() {
+  docker compose down --rmi local && docker compose up
+}
+
+# Function to rebuild docker image and run using compose
+docker-reload-volumes() {
+  docker compose down -v --rmi local && docker compose up
+}
+
 #################
 #### Aliases ####
 #################
