@@ -14,7 +14,7 @@ require("conform").setup {
     sh = { "shfmt" },
     lua = { "stylua" },
     go = { "goimports", "gofumpt", "goimports-reviser" },
-    python = { "isort" },
+    python = { "black" },
     javascript = { "prettier", "prettierd" },
     typescript = { "prettier", "prettierd" },
     javascriptreact = { "prettierd", "prettier" },

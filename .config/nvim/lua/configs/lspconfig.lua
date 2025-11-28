@@ -31,7 +31,11 @@ vim.lsp.config("gopls", {
 vim.lsp.config("pylsp", {
   settings = {
     pylsp = {
+      signature = {
+        formatter = "null",
+      },
       plugins = {
+
         pycodestyle = {
           enabled = false,
         },
