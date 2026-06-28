@@ -1,0 +1,2 @@
+# tmux plugins are installed by tpm at setup time (see scripts/setup_system)
+.config/tmux/plugins/

@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Run fzfmenu.sh to get the selected directory
-selected_dir=$(fd --type directory --hidden . ~ | ~/scripts/fzfmenu.sh)
+# Run fzfmenu to get the selected directory
+selected_dir=$(fd --type directory --hidden . ~ | ~/scripts/fzfmenu)
 program=$(
   printf "1 Terminal Tmux\n2 Dolphin" |
-    ~/scripts/fzfmenu.sh |
+    ~/scripts/fzfmenu |
     awk '{print $1}'
 )
 
