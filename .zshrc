@@ -1,10 +1,3 @@
-###################
-#### FastFetch ####
-###################
-
-# Run fastfetch on startup
-# clear; sleep 0.05; fastfetch
-
 #################
 #### Sources ####
 #################
@@ -16,56 +9,11 @@
 [[ -e "$HOME/.config/fzf/key-bindings.zsh" ]] && source $HOME/.config/fzf/key-bindings.zsh
 # Source Luke Smith's zshrc
 [[ -e "$HOME/.config/zsh/lukesmith.zsh" ]] && source $HOME/.config/zsh/lukesmith.zsh
+[[ -e "$HOME/.config/zsh/aliases.zsh" ]] && source $HOME/.config/zsh/aliases.zsh
+[[ -e "$HOME/.config/zsh/exports.zsh" ]] && source $HOME/.config/zsh/exports.zsh
+[[ -e "$HOME/.config/zsh/functions.zsh" ]] && source $HOME/.config/zsh/functions.zsh
+[[ -e "$HOME/.config/zsh/hooks.zsh" ]] && source $HOME/.config/zsh/hooks.zsh
 
-#################
-#### Exports ####
-#################
-
-# export TERMINAL='foot'
-# export EDITOR='nvim'
-# export VISUAL='nvim'
-# export QT_QPA_PLATFORM=wayland
-export WINEESYNC=1
-export WINEFSYNC=1
-
-###################
-#### Functions ####
-###################
-
-# Function to search and install packages using pacman
-pacf() {
-	pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S
-}
-
-# Function to search and install packages using yay
-yayf() {
-	yay -Slq | fzf --multi --preview 'yay -Si {1}' | xargs -ro yay -S
-}
-
-# Function to search and remove packages using pacman
-pacrm() {
-	pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns
-}
-
-# Function to rebuild docker image and run using compose
-docker-reload() {
-  docker compose down --rmi local && docker compose up
-}
-
-# Function to rebuild docker image and run using compose
-docker-reload-volumes() {
-  docker compose down -v --rmi local && docker compose up
-}
-
-#################
-#### Aliases ####
-#################
-
-alias ls="ls --color=auto"
-alias warp="warp-cli"
-alias tmux="tmux -u"
-alias ttach="tmux attach-session -t"
-alias tkill="tmux kill-session -t"
 
 #################
 #### Plugins ####
@@ -94,4 +42,3 @@ fi
 
 # Created by `pipx` on 2025-05-22 10:14:30
 export PATH="$PATH:/home/docar/.local/bin"
-

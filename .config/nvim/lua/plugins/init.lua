@@ -102,10 +102,6 @@ return {
     end,
   },
   {
-    "github/copilot.vim",
-    cmd = { "Copilot" },
-  },
-  {
     "ray-x/web-tools.nvim",
     config = function()
       require "configs.web-tools"
