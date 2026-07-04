@@ -42,3 +42,7 @@ fi
 
 # Created by `pipx` on 2025-05-22 10:14:30
 export PATH="$PATH:/home/docar/.local/bin"
+
+# Android SDK (for React Native builds)
+export ANDROID_HOME="$HOME/Android/Sdk"
+export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator"

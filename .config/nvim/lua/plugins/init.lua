@@ -23,9 +23,6 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    config = function()
-      require "configs.treesitter"
-    end,
   },
   {
     "nvim-tree/nvim-tree.lua",

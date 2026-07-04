@@ -13,16 +13,6 @@ pacrm() {
 	pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns
 }
 
-# Quickly compose down and compose up with changes
-docker-reload() {
-  docker compose down --rmi local && docker compose up
-}
-
-# Quickly compose down and compose up with changes
-docker-reload-volumes() {
-  docker compose down -v --rmi local && docker compose up
-}
-
 # Generate secure password
 pw-gen() {
   openssl rand -base64 14

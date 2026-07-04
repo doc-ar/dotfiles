@@ -1,6 +1,9 @@
-# export TERMINAL='foot'
-# export EDITOR='nvim'
-# export VISUAL='nvim'
-# export QT_QPA_PLATFORM=wayland
-export WINEESYNC=1
-export WINEFSYNC=1
+export PATH="/run/user/1000/fnm_multishells/125581_1782647700591/bin":$PATH
+export FNM_MULTISHELL_PATH="/run/user/1000/fnm_multishells/125581_1782647700591"
+export FNM_VERSION_FILE_STRATEGY="local"
+export FNM_DIR="/home/docar/.local/share/fnm"
+export FNM_LOGLEVEL="info"
+export FNM_NODE_DIST_MIRROR="https://nodejs.org/dist"
+export FNM_COREPACK_ENABLED="false"
+export FNM_RESOLVE_ENGINES="true"
+export FNM_ARCH="x64"
