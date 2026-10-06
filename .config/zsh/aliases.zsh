@@ -1,4 +1,4 @@
-alias ls="eza --icons --group-directories-first"
+alias ls="ls --color=auto"
 alias warp="warp-cli"
 alias tmux="tmux -u"
 alias ttach="tmux attach-session -t"

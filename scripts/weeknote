@@ -1,0 +1,92 @@
+#!/usr/bin/env bash
+
+# weeknote.sh — prompt for a week number in a small floating Alacritty window,
+# generate the weekly-note template for that week, copy it to the clipboard.
+#
+# Hyprland rule (match on the window class/tag):
+#   windowrulev2 = float, class:^(weeknote)$
+#   windowrulev2 = size 620 220, class:^(weeknote)$
+#   windowrulev2 = center, class:^(weeknote)$
+
+set -euo pipefail
+export LC_TIME=C # English month/day names regardless of system locale
+
+# --- config -----------------------------------------------------------------
+# Week numbering is anchored: ANCHOR_WEEK falls on the Monday ANCHOR_MONDAY.
+# Taken from the reference template: Week 38 = Monday 2026-07-06.
+ANCHOR_WEEK=38
+ANCHOR_MONDAY=2026-07-06
+
+WINDOW_CLASS=weeknote
+# ---------------------------------------------------------------------------
+
+SELF=$(realpath "$0")
+
+# Parent: spawn the terminal, then exit.
+if [[ -z ${WEEKNOTE_CHILD:-} ]]; then
+  exec alacritty \
+    --class "$WINDOW_CLASS,$WINDOW_CLASS" \
+    --title "$WINDOW_CLASS" \
+    -o 'window.dimensions.columns=52' \
+    -o 'window.dimensions.lines=6' \
+    -o 'window.padding.x=18' \
+    -o 'window.padding.y=14' \
+    -o 'window.decorations="none"' \
+    -o 'window.opacity=0.96' \
+    -o 'window.dynamic_padding=true' \
+    -o 'font.size=13' \
+    -o 'font.normal.family="JetBrainsMono Nerd Font"' \
+    -o 'cursor.style.shape="Beam"' \
+    -o 'cursor.style.blinking="On"' \
+    -o 'colors.primary.background="#11121a"' \
+    -o 'colors.primary.foreground="#c8d3f5"' \
+    -e env WEEKNOTE_CHILD=1 "$SELF"
+fi
+
+# --- child: prompt ----------------------------------------------------------
+BOLD=$'\e[1m'
+DIM=$'\e[2m'
+CYAN=$'\e[38;2;134;225;252m'
+GREEN=$'\e[38;2;195;232;141m'
+RED=$'\e[38;2;255;117;127m'
+R=$'\e[0m'
+
+printf '\n  %s%sWeekly note%s  %s— which week?%s\n\n' "$BOLD" "$CYAN" "$R" "$DIM" "$R"
+
+week=""
+while :; do
+  printf '  %s❯%s Week number: ' "$CYAN" "$R"
+  IFS= read -r week || exit 1
+  week=${week//[[:space:]]/}
+  [[ $week =~ ^[0-9]+$ ]] && ((week > 0)) && break
+  printf '  %s✗ digits only%s\n\n' "$RED" "$R"
+done
+
+# --- dates ------------------------------------------------------------------
+monday=$(date -d "$ANCHOR_MONDAY + $(((week - ANCHOR_WEEK) * 7)) days" +%F)
+friday=$(date -d "$monday + 4 days" +%F)
+
+start_pretty=$(date -d "$monday" '+%B %-d')
+end_pretty=$(date -d "$friday" '+%B %-d')
+year=$(date -d "$friday" +%Y)
+
+# --- template ---------------------------------------------------------------
+{
+  printf '# Week %s (%s – %s, %s)\n\n' "$week" "$start_pretty" "$end_pretty" "$year"
+  printf '## Hours\n**Total Tasks:**\n**Estimated Hours:**\n**Total Hours:**\n\n'
+  printf '## Weekly Summary\n\n'
+  printf '## GitHub Issues\n'
+  for i in 0 1 2 3 4; do
+    d=$(date -d "$monday + $i days" '+%A (%-d %B %Y)')
+    printf '### %s\n\n' "$d"
+  done
+  printf '## Non-Tech Tasks\n'
+  printf '| Day | Hours | Notes |\n'
+  printf '|-----|-------|-------|\n'
+  for d in Mon Tue Wed Thu Fri; do
+    printf '| %s | — | — |\n' "$d"
+  done
+} | wl-copy --type text/plain
+
+printf '\n  %s✓ Week %s (%s → %s) copied%s\n' "$GREEN" "$week" "$monday" "$friday" "$R"
+sleep 1.2

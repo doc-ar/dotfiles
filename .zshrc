@@ -46,3 +46,8 @@ export PATH="$PATH:/home/docar/.local/bin"
 # Android SDK (for React Native builds)
 export ANDROID_HOME="$HOME/Android/Sdk"
 export PATH="$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/docar/.lmstudio/bin"
+# End of LM Studio CLI section
+
